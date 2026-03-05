@@ -32,26 +32,32 @@
      - Caso alguns os datasflames tenha mais informações que o outro, é necessário indetinficar (all.dataflame=T)
 
 + ATIVIDADE DO DIA 2
+
+```R
 - load("exer2.RData")
 
-#Construa o data.frame "SH.DE" com os dados de "SH.limma", mantendo 
-#somente as sondas que estao presentes no data.frame "DE.exp"
+1. Construa o data.frame "SH.DE" com os dados de "SH.limma", mantendo somente as sondas que estao presentes no data.frame "DE.exp"
 
-SH.DE<- merge(SH.limma, DEexp, by = "row.names", all.x=T)
-*--> SH.DE <- SH.DE[row.names(DEexp),] - forma mais correta do comando, a utilização da função merge() não está totalmente errada, mas como o merge junta ambas os datasflames deixando o resultado com muitas colunas. Já com esse código mais simples e não gera um arquivo com tantas colunas.*
 
-#confirme se todos as sondas presentes em "DEexp" estao presentes em "SH.DE"
+SH.DE<- merge(SH.limma, DEexp, by = "row.names", all.x=T) 
+
+--> SH.DE <- SH.DE[row.names(DEexp),] - forma mais correta do comando, a utilização da função merge() não está totalmente errada, mas como o merge junta ambas os datasflames deixando o resultado com muitas colunas. Já com esse código mais simples e não gera um arquivo com tantas colunas.
+
+2. Confirme se todos as sondas presentes em "DEexp" estao presentes em "SH.DE"
+
 soma<- sum(row.names(DEexp)%in%SH.DE$Row.names)
 soma == nrow(DEexp)
-*--> Pode ser feito utilizando a função all().*
+--> Pode ser feito utilizando a função all().
 
-#Elimine as linhas que contem NA do data.frame "SH.DE"
+Elimine as linhas que contem NA do data.frame "SH.DE"
 SH.DE<-na.omit(SH.DE) 
 
-#Adicione uma coluna em "SH.DE" contendo os dados de "ensemble_gene_id" 
-#contidos no data.frame "queryENSG"
-SH.DE<- merge(SH.DE, queryENSG, by.x = "Row.names", by.y= "hgnc_symbol", all = TRUE)
-*--> SH.DE<- merge(SH.DE, queryENSG, by.x = "Row.names", all = TRUE) um dos principais erros desse código está no final, o all=T está errado pois quando acontece o merge, são criados linhas NA para bater a quantidade de linhas iguais nos dois dataflames. O correto seria all.x = T, dessa forma não iria gerar linhas a mais sem conter nada.*
+Adicione uma coluna em "SH.DE" contendo os dados de "ensemble_gene_id" 
+contidos no data.frame "queryENSG"
+
+ SH.DE<- merge(SH.DE, queryENSG, by.x = "Row.names", by.y= "hgnc_symbol", all = TRUE)
+
+--> SH.DE<- merge(SH.DE, queryENSG, by.x = "Row.names", all = TRUE) um dos principais erros desse código está no final, o all=T está errado pois quando acontece o merge, são criados linhas NA para bater a quantidade de linhas iguais nos dois dataflames. O correto seria all.x = T, dessa forma não iria gerar linhas a mais sem conter nada.
               
 #faca uma lista "DEtime" com 5 data.frames, cada um contendo symbol, 
 #entrez e ensemble_gene_id dos genes upregulated nos tempos 6h, 1d, 2d, 3d e 5d, respectivamente
@@ -62,9 +68,10 @@ df_2d<- SH.DE[which(SH.DE$logFC.t2d...t0h>0), c("symbol", "entrez", "ensembl_gen
 df_3d<- SH.DE[which(SH.DE$logFC.t3d...t0h>0), c("symbol", "entrez", "ensembl_gene_id.y")]
 df_5d<- SH.DE[which(SH.DE$logFC.t5d...t0h>0), c("symbol", "entrez", "ensembl_gene_id.y")]
 
-*--> O erro nessa parte é que devido ao erro da questão anterior, eu tive que usar o which por conta dos vários NA criados
+--> O erro nessa parte é que devido ao erro da questão anterior, eu tive que usar o which por conta dos vários NA criados
 
 DEtime<- list(df_6h,df_1d,df_2d,df_3d,df_5d)
+```
 
 
 # AULA 3 - 4/03/2026
