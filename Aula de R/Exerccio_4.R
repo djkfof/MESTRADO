@@ -7,5 +7,17 @@ cogdata<-cogdata[1:10000,]
 # (1) o codigo da especie, (2) o orthologous_group (3) o numero de proteinas daquela especie contida no respectivo orthologous_group 
 # lembre-se que para cada especie ha diversos orthologous_group, cada um com diversas proteinas
 
-
+OGanalyzer <- function(df){
+  separedo <- strsplit(df$protein, "\\.")      
+    cortprot <- sapply(separedo, function(x){x[1]})
+      df$especie <- cortprot
+        resultado <- tapply(df$especie, list(df$especie, df$orthologous_group), FUN = length)
+          resultado <- as.data.frame(as.table(resultado))
+            resultado<- resultado[!is.na(resultado$Freq),]
+              colnames(resultado) <- c("especie", "orthologous_group", "numero_proteinas")
   
+  return(resultado)
+}
+      
+
+OGanalyzer(cogdata)
