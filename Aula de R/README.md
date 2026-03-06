@@ -77,4 +77,4 @@ DEtime<- list(df_6h,df_1d,df_2d,df_3d,df_5d)
 # AULA 3 - 4/03/2026
 - Trabalhando com importação de dados
 
-
+só para dor de cabeça ajsdahdjashdajsh 
