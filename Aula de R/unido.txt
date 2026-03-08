@@ -1,0 +1,4 @@
+nomes	altura	peso	esportes
+Carlos	180	80	futebol
+Olivio	155	98	sumo
+Roberto	187	90	remo
