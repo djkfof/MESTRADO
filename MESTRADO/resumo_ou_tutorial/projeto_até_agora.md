@@ -11,11 +11,11 @@
 - TOMTOM: O TOMTOM atua na etapa seguinte. Ele pega o motivo desconhecido que o MEME acabou de descobrir e o compara com bancos de dados de motivos genômicos já validados cientificamente (como o JASPAR, HOCOMOCO, etc.).
 
 5. Para prosseguir para  a próxima etapa, é necessário saber onde está o a região da proteína e como funciona a transcrição naquele organismo estudado. Estou estudando quitinases da família trypanomatidae, que são protozoários, esses orginismos possuem uma transcrição policistrônica, então teremos que buscar motivs nas regiões 3'UTR. 
--ref: CLAYTON, Christine. Regulation of gene expression in trypanosomatids: living with polycistronic transcription. Open biology, v. 9, n. 6, 2019.
+- ref: CLAYTON, Christine. Regulation of gene expression in trypanosomatids: living with polycistronic transcription. Open biology, v. 9, n. 6, 2019.
 
 6. Após descobrir a região, pelo simples código abaixo:
 
-'''python
+''' python
 
 contig_seq = """""".replace('\n', '')
 
@@ -49,3 +49,4 @@ print(f"Foram extraídas {len(sequencia_utr)} bases referentes à região 3' UTR
 
 
 8. O MEME gerará os motivos encontrados, após isso basta pegar os resultados gerados e colocar para comparar contra o banco de dados do TOTOM.
+
