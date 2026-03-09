@@ -15,21 +15,21 @@
 
 6. Após descobrir a região, pelo simples código abaixo:
 
-`` python
+``` python
 
 contig_seq = """""".replace('\n', '')
 
-# 1. Coordenadas biológicas da proteína
+ 1. Coordenadas biológicas da proteína
 fim_proteina = 5025
 tamanho_total = len(contig_seq)
 
-# 2. Ajustando o índice para o Python 
+ 2. Ajustando o índice para o Python 
 inicio_utr_python = fim_proteina 
 
-# 3. Recortando até o final da contig
+ 3. Recortando até o final da contig
 sequencia_utr = contig_seq[inicio_utr_python:tamanho_total]
 
-# 4. Criando e salvando o arquivo FASTA para a UTR
+ 4. Criando e salvando o arquivo FASTA para a UTR
 nome_do_arquivo = "3_UTR_extraida.fasta"
 cabecalho_fasta = f">3_UTR_k99_6878_quitinase_pos_5026_a_{tamanho_total}"
 
@@ -49,5 +49,6 @@ print(f"Foram extraídas {len(sequencia_utr)} bases referentes à região 3' UTR
 
 
 8. O MEME gerará os motivos encontrados, após isso basta pegar os resultados gerados e colocar para comparar contra o banco de dados do TOTOM.
+
 
 
