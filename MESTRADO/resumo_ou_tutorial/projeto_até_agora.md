@@ -15,7 +15,7 @@
 
 6. Após descobrir a região, pelo simples código abaixo:
 
-''' python
+`` python
 
 contig_seq = """""".replace('\n', '')
 
@@ -41,7 +41,7 @@ with open(nome_do_arquivo, "w") as arquivo:
 
 print(f"Sucesso! O arquivo '{nome_do_arquivo}' foi criado.")
 print(f"Foram extraídas {len(sequencia_utr)} bases referentes à região 3' UTR.")
-'''
+```
 
 7. Agora podemos colocar o arquivo extraido que possui a região 3'UTR no MEME;
 - Como estou colocando somente uma região UTR, a ferramenta pedira para marcar a opção "Any number of repeticion".
@@ -49,4 +49,5 @@ print(f"Foram extraídas {len(sequencia_utr)} bases referentes à região 3' UTR
 
 
 8. O MEME gerará os motivos encontrados, após isso basta pegar os resultados gerados e colocar para comparar contra o banco de dados do TOTOM.
+
 
