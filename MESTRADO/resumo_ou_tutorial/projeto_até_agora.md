@@ -14,7 +14,8 @@
 -ref: CLAYTON, Christine. Regulation of gene expression in trypanosomatids: living with polycistronic transcription. Open biology, v. 9, n. 6, 2019.
 
 6. Após descobrir a região, pelo simples código abaixo:
-''' python
+
+'''python
 
 contig_seq = """""".replace('\n', '')
 
@@ -45,5 +46,6 @@ print(f"Foram extraídas {len(sequencia_utr)} bases referentes à região 3' UTR
 7. Agora podemos colocar o arquivo extraido que possui a região 3'UTR no MEME;
 - Como estou colocando somente uma região UTR, a ferramenta pedira para marcar a opção "Any number of repeticion".
 - Essa opção irá causar ruido ao consequir o motivo, então é necessário colocamias sequências nesses arquivos.
+
 
 8. O MEME gerará os motivos encontrados, após isso basta pegar os resultados gerados e colocar para comparar contra o banco de dados do TOTOM.
